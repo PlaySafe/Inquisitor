@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ValidationRules>
+    <!-- Rule 1: Postal Code's length = 5 -->
+    <ValidationRule group="POSTAL_CODE_LENGTH">
+        <Condition logic="has_text">
+            <Function logic="get" param="@{postalCode}" />
+        </Condition>
+        <Condition logic="equals" value2="5">
+            <Function logic="length">
+                <Function logic="get" param="@{postalCode}" />
+            </Function>
+        </Condition>
+    </ValidationRule>
+
+    <!-- Rule 2: Postal Code's length > 5 -->
+    <ValidationRule group="POSTAL_CODE_LENGTH">
+        <Condition logic="has_text">
+            <Function logic="get" param="@{postalCode}" />
+        </Condition>
+        <Condition logic="greater_than" value2="5">
+            <Function logic="length">
+                <Function logic="get" param="@{postalCode}" />
+            </Function>
+        </Condition>
+        <Condition logic="is_letter">
+            <Function logic="length">
+                <Function logic="char_at" param="0">
+                    <Function logic="get" param="@{postalCode}" />
+                </Function>
+            </Function>
+        </Condition>
+        <Condition logic="is_letter">
+            <Function logic="length">
+                <Function logic="char_at" param="1">
+                    <Function logic="get" param="@{postalCode}" />
+                </Function>
+            </Function>
+        </Condition>
+    </ValidationRule>
+</ValidationRules>
