@@ -14,7 +14,7 @@ public interface Function {
      * if there is before operate the function logic.
      *
      * @param input       the arbitrary object for retrieving data
-     * @param definitions the user definition. 1<upper>st</upper> key is the definition name, and the 2<upper>nd</upper> key is the definition key
+     * @param definitions the user definition. 1st key is the definition name, and the 2nd key is the definition key
      * @return the string result
      */
     String perform(Object input, Map<String, Map<String, Object>> definitions);
