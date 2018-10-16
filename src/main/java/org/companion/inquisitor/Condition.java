@@ -7,7 +7,7 @@ import java.util.Map;
  * The implementation must provide a constructor for {@link ConditionDefinition}.
  * Nevertheless, the implementation can implement overload constructor as well.
  */
-interface Condition {
+public interface Condition {
 
     /**
      * Checks all conditions both itself and/or the its dependent conditions.

@@ -7,7 +7,7 @@ package org.companion.inquisitor;
  *
  * @see ConditionBuilder
  */
-class ConditionDefinition {
+public class ConditionDefinition {
 
     private final String logic;
     private final Function value1;

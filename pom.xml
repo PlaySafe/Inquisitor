@@ -34,7 +34,7 @@
     <scm>
         <connection>scm:git:git://github.com/PlaySafe/inquisitor.git</connection>
         <developerConnection>scm:git:git@github.com:PlaySafe/inquisitor.git</developerConnection>
-        <url>https://github.com/PlaySafe/impresario/tree/master</url>
+        <url>https://github.com/PlaySafe/inquisitor/tree/master</url>
     </scm>
 
     <build>
