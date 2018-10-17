@@ -34,14 +34,14 @@ Using this project, you are able to
     <ConditionAttribute reference-to-name="logic"
                         reference-to-parameter1="value1" reference-to-parameter2="value2" />
     <Conditions>
-        <Condition name="or" class="org.companion.impresario.ConditionOr" />
-        <Condition name="and" class="org.companion.impresario.ConditionAnd" />
-        <Condition name="has_text" class="org.companion.impresario.ConditionHasText" />
+        <Condition name="or" class="org.companion.inquisitor.ConditionOr" />
+        <Condition name="and" class="org.companion.inquisitor.ConditionAnd" />
+        <Condition name="has_text" class="org.companion.inquisitor.ConditionHasText" />
     </Conditions>
     <Functions>
-        <Function name="get" class="org.companion.impresario.FunctionGet" />
-        <Function name="concat" class="org.companion.impresario.FunctionConcat" />
-        <Function name="replace" class="org.companion.impresario.FunctionReplace" />
+        <Function name="get" class="org.companion.inquisitor.FunctionGet" />
+        <Function name="concat" class="org.companion.inquisitor.FunctionConcat" />
+        <Function name="replace" class="org.companion.inquisitor.FunctionReplace" />
     </Functions>
 </Meta>
 ```
@@ -52,7 +52,12 @@ Using this project, you are able to
 2. The configuration of **\<ConditionAttribute\>** refers to the configuration attributes of **\<Condition\>**
    * **reference-to-name="logic"** refers to attribute of **\<Condition logic="..."\>**
    * **reference-to-parameter1="value1"**, and **reference-to-parameter2="value2"** refer to **\<Condition value1="..." value2="..."\>**
-3. The **\<Condition\>** uses to define the available conditions, so does the **\<Function\>**
+3. The configuration of **\<Definition\>** refers to the configuration of **\<Definition\>** and its attributes
+   * **reference-to-name="name"** refers to **\<Definition name="..."\>**
+   * **reference-item-tag="Item"** refers to **\<Item\>**
+   * **reference-item-key="key"** refers to **\<Item key="..."\>**
+   * **reference-item-value="value"** refers to **\<Item value="..."\>**
+4. The **\<Condition\>** uses to define the available conditions, so does the **\<Function\>**
 
 ---
 
@@ -176,7 +181,7 @@ Notice:
 * **Ignore the definition.getLogic()**, it is use to select the right implementation from meta data
 * The value1, and value2 refer to the parameter1 and parameter2 in the configuration respectively
 * You don't need to define class to be public, but you need a public constructor
-* org.companion.impresario.VariableReflector can help you when
+* org.companion.inquisitor.VariableReflector can help you when
    * You want value from object
    * You want value of properties
 
@@ -206,85 +211,85 @@ boolean isValid = validationRule.validate(data);
 ---
 
 ### Available Function
-    org.companion.impresario.FunctionGet
+    org.companion.inquisitor.FunctionGet
 
 Returns value from the specific definition, properties, specific field, or the value itself corresponds to the configuration.
 
 ---
-    org.companion.impresario.FunctionLength
+    org.companion.inquisitor.FunctionLength
 
 Returns length of the string
 
 ---
-    org.companion.impresario.FunctionSubstring
+    org.companion.inquisitor.FunctionSubstring
 
  * The negative index (-X): return since first character until the last X character exclude the last character e.g 9876543 substring -3 = 9876
  * The positive index (+X): return since character X to the last character e.g. 123456 substring 2 = 3456
 
 ---
-    org.companion.impresario.FunctionCutOff
+    org.companion.inquisitor.FunctionCutOff
 
  * The negative index (-X): return last X character e.g 9876543 cut off -3 = 543
  * The positive index (+X): return first X character e.g. 123456 cut off 2 = 12
 
 ---
-    org.companion.impresario.FunctionCharAt
+    org.companion.inquisitor.FunctionCharAt
 
 Returns a character at the specific index
 
 ---
 
 ### Available Condition
-    org.companion.impresario.ConditionEquals
+    org.companion.inquisitor.ConditionEquals
 
 Returns true if 2 parameters are consider equals, otherwise false
 
 ---
-    org.companion.impresario.ConditionNotEquals
+    org.companion.inquisitor.ConditionNotEquals
 
 Returns true if 2 parameters are consider not equals, otherwise false
 
 ---
-    org.companion.impresario.ConditionLessThan
+    org.companion.inquisitor.ConditionLessThan
 
 Returns true if parameter1 < parameter2, otherwise false
 
 ---
-    org.companion.impresario.ConditionLessThanEquals
+    org.companion.inquisitor.ConditionLessThanEquals
     
 Returns true if parameter1 <= parameter2, otherwise false
 
 ---
-    org.companion.impresario.ConditionGreaterThan
+    org.companion.inquisitor.ConditionGreaterThan
 
 Returns true if parameter1 > parameter2, otherwise false
 
 ---
-    org.companion.impresario.ConditionGreaterThanEquals
+    org.companion.inquisitor.ConditionGreaterThanEquals
 
 Returns true if parameter1 >= parameter2, otherwise false
 
 ---
-    org.companion.impresario.ConditionIsNull
+    org.companion.inquisitor.ConditionIsNull
 
 Returns true if parameter1 is null, otherwise false
 
 ---
-    org.companion.impresario.ConditionIsNotNull
+    org.companion.inquisitor.ConditionIsNotNull
 
 Returns true if parameter1 is not null, otherwise false
 
 ---
-    org.companion.impresario.ConditionHasText
+    org.companion.inquisitor.ConditionHasText
 
 Returns true if parameter1 has text (length > 0), otherwise false
 
 ---
-    org.companion.impresario.ConditionHasNoText
+    org.companion.inquisitor.ConditionHasNoText
 
-Returns true if parameter1 has no text (null or length > 0), otherwise false
+Returns true if parameter1 has no text (null or length = 0), otherwise false
 
 ---
-    org.companion.impresario.ConditionIsLetter
+    org.companion.inquisitor.ConditionIsLetter
     
 Returns true the whole strings has only letter, otherwise false
