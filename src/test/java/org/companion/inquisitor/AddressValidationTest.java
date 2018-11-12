@@ -37,4 +37,17 @@ public class AddressValidationTest {
 
         Assert.assertTrue(validationRule.validate(address));
     }
+
+    @Test
+    public void case6CharactersPostalCode() {
+        Address address = new DefaultAddress.Builder()
+                .setCity("city0")
+                .setState("state0")
+                .setStreet("street0")
+                .setPostalCode("AB25700")
+                .setCountry("country0")
+                .build();
+
+        Assert.assertTrue(validationRule.validate(address));
+    }
 }

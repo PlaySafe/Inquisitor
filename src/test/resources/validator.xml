@@ -23,17 +23,13 @@
             </Function>
         </Condition>
         <Condition logic="is_letter">
-            <Function logic="length">
-                <Function logic="char_at" param="0">
-                    <Function logic="get" param="@{postalCode}" />
-                </Function>
+            <Function logic="char_at" param="0">
+                <Function logic="get" param="@{postalCode}" />
             </Function>
         </Condition>
         <Condition logic="is_letter">
-            <Function logic="length">
-                <Function logic="char_at" param="1">
-                    <Function logic="get" param="@{postalCode}" />
-                </Function>
+            <Function logic="char_at" param="1">
+                <Function logic="get" param="@{postalCode}" />
             </Function>
         </Condition>
     </ValidationRule>
