@@ -15,12 +15,12 @@ Maven
 <dependency>
     <groupId>io.github.playsafe</groupId>
     <artifactId>inquisitor</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 Gradle
 ```
-compile group: 'io.github.playsafe', name: 'inquisitor', version: '1.0.0'
+compile group: 'io.github.playsafe', name: 'inquisitor', version: '1.0.2'
 ```
 The repository is [https://mvnrepository.com/artifact/io.github.playsafe/inquisitor](https://mvnrepository.com/artifact/io.github.playsafe/inquisitor)
 
@@ -75,13 +75,21 @@ This file will define the available functions and conditions
 <ValidationRules>
     <!-- Rule 1: Postal Code's length = 5 -->
     <ValidationRule group="POSTAL_CODE_LENGTH">
+        <Definitions>
+            <Definition name="EXPECT_LENGTH">
+                <Item key="Postal" value="5" />
+            </Definition>
+        </Definitions>
         <Condition name="has_text">
             <Function name="get" param="@{postalCode}" />
         </Condition>
-        <Condition name="equals" value2="5">
+        
+        <!-- check if @{postalCode}.length == #{EXPECT_LENGTH.Postal} -->
+        <Condition name="equals">
             <Function name="length">
                 <Function name="get" param="@{postalCode}" />
             </Function>
+            <Function name="get" param="#{EXPECT_LENGTH.Postal}" />
         </Condition>
     </ValidationRule>
 
