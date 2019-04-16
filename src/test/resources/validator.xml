@@ -3,11 +3,11 @@
     <!-- Rule 1: Postal Code's length = 5 -->
     <ValidationRule group="POSTAL_CODE_LENGTH">
         <Condition logic="has_text">
-            <Function logic="get" param="@{postalCode}" />
+            <Function logic="get" param1="@{postalCode}" />
         </Condition>
         <Condition logic="equals" value2="5">
             <Function logic="length">
-                <Function logic="get" param="@{postalCode}" />
+                <Function logic="get" param1="@{postalCode}" />
             </Function>
         </Condition>
     </ValidationRule>
@@ -15,21 +15,21 @@
     <!-- Rule 2: Postal Code's length > 5 -->
     <ValidationRule group="POSTAL_CODE_LENGTH">
         <Condition logic="has_text">
-            <Function logic="get" param="@{postalCode}" />
+            <Function logic="get" param1="@{postalCode}" />
         </Condition>
         <Condition logic="greater_than" value2="5">
             <Function logic="length">
-                <Function logic="get" param="@{postalCode}" />
+                <Function logic="get" param1="@{postalCode}" />
             </Function>
         </Condition>
         <Condition logic="is_letter">
-            <Function logic="char_at" param="0">
-                <Function logic="get" param="@{postalCode}" />
+            <Function logic="char_at" param1="0">
+                <Function logic="get" param1="@{postalCode}" />
             </Function>
         </Condition>
         <Condition logic="is_letter">
-            <Function logic="char_at" param="1">
-                <Function logic="get" param="@{postalCode}" />
+            <Function logic="char_at" param1="1">
+                <Function logic="get" param1="@{postalCode}" />
             </Function>
         </Condition>
     </ValidationRule>

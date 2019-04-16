@@ -16,7 +16,8 @@ import org.w3c.dom.NodeList;
 public class MetaValidatorFactory {
 
     private final XPathExpression xPathFunctionAttributeName;
-    private final XPathExpression xPathFunctionAttributeParameter;
+    private final XPathExpression xPathFunctionAttributeParameter1;
+    private final XPathExpression xPathFunctionAttributeParameter2;
 
     private final XPathExpression xPathDefinitionItemTag;
     private final XPathExpression xPathAttributeDefinitionName;
@@ -36,7 +37,8 @@ public class MetaValidatorFactory {
         XPathFactory xPathFactory = XPathFactory.newInstance();
         try {
             xPathFunctionAttributeName = xPathFactory.newXPath().compile("/Meta/FunctionAttribute/@reference-to-name");
-            xPathFunctionAttributeParameter = xPathFactory.newXPath().compile("/Meta/FunctionAttribute/@reference-to-parameter");
+            xPathFunctionAttributeParameter1 = xPathFactory.newXPath().compile("/Meta/FunctionAttribute/@reference-to-parameter1");
+            xPathFunctionAttributeParameter2 = xPathFactory.newXPath().compile("/Meta/FunctionAttribute/@reference-to-parameter2");
 
             xPathDefinitionItemTag = xPathFactory.newXPath().compile("/Meta/Definition/@reference-item-tag");
             xPathAttributeDefinitionName = xPathFactory.newXPath().compile("/Meta/Definition/@reference-to-name");
@@ -74,7 +76,8 @@ public class MetaValidatorFactory {
             String attributeDefinitionItemValue = xPathAttributeDefinitionItemValue.evaluate(document);
 
             String attributeFunctionName = xPathFunctionAttributeName.evaluate(document);
-            String attributeFunctionParameter = xPathFunctionAttributeParameter.evaluate(document);
+            String attributeFunctionParameter1 = xPathFunctionAttributeParameter1.evaluate(document);
+            String attributeFunctionParameter2 = xPathFunctionAttributeParameter2.evaluate(document);
 
             String attributeConditionName = xPathConditionAttributeName.evaluate(document);
             String attributeConditionValue1 = xPathConditionAttributeValue1.evaluate(document);
@@ -88,7 +91,8 @@ public class MetaValidatorFactory {
                     .setAttributeDefinitionItemKey(attributeDefinitionItemKey)
                     .setAttributeDefinitionItemValue(attributeDefinitionItemValue)
                     .setAttributeFunctionName(attributeFunctionName)
-                    .setAttributeFunctionParameter(attributeFunctionParameter)
+                    .setAttributeFunctionParameter1(attributeFunctionParameter1)
+                    .setAttributeFunctionParameter2(attributeFunctionParameter2)
                     .setAttributeConditionName(attributeConditionName)
                     .setAttributeConditionValue1(attributeConditionValue1)
                     .setAttributeConditionValue2(attributeConditionValue2)

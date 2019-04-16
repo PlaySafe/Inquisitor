@@ -2,11 +2,11 @@
 <ValidationRules>
     <ValidationRule group="POSTAL_CODE_LENGTH">
         <Condition logic="has_text">
-            <Function logic="get" param="@{postalCode}" />
+            <Function logic="get" param1="@{postalCode}" />
         </Condition>
         <Condition logic="equals" value2="5">
             <Function logic="length">
-                <Function logic="get" param="@{postalCode}" />
+                <Function logic="get" param1="@{postalCode}" />
             </Function>
         </Condition>
     </ValidationRule>

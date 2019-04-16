@@ -10,7 +10,7 @@ class FunctionGet implements Function {
     private final Function delegateFunction;
 
     public FunctionGet(FunctionDefinition definition) {
-        String param = definition.getParam();
+        String param = definition.getParameter1();
         if (VariableReflector.isProperties(param)) {
             delegateFunction = new FunctionGetProperties(param);
         }
