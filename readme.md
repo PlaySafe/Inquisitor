@@ -1,4 +1,4 @@
-# Welcome to Inquisitor Project
+# This project is no longer support. It has been merged to impresario project. [https://mvnrepository.com/artifact/io.github.playsafe/impresario](https://mvnrepository.com/artifact/io.github.playsafe/impresario)
 
 > A lightweight framework for complex validation logic.
 
